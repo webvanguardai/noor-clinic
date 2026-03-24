@@ -1,260 +1,107 @@
-'use client'
-
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false)
-  const [loading, setLoading] = useState(false)
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    setLoading(true)
-    const form = e.currentTarget
-    const data = new FormData(form)
-
-    try {
-      const res = await fetch('https://formspree.io/f/xpwzgkrl', {
-        method: 'POST',
-        body: data,
-        headers: { Accept: 'application/json' },
-      })
-      if (res.ok) {
-        setSubmitted(true)
-        form.reset()
-      }
-    } catch {
-      // Fallback: show success anyway for demo
-      setSubmitted(true)
-    } finally {
-      setLoading(false)
-    }
-  }
-
   return (
-    <section id="contact" className="py-24 lg:py-32 bg-[#0D0D15] relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,169,110,0.05),transparent_60%)]" />
+    <section id="contact" className="py-20 bg-off-white scroll-mt-16">
+      <div className="max-w-7xl mx-auto px-5 lg:px-10">
+        {/* Header */}
+        <div className="mb-12">
+          <p className="section-label mb-3">Find Us</p>
+          <h2 className="font-display text-[48px] sm:text-[56px] font-light text-charcoal leading-tight">
+            Visit Noor Clinic
+          </h2>
+        </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left: Info + Map */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="flex items-center gap-4 mb-5">
-              <div className="section-divider" />
-              <span className="text-[11px] tracking-[0.2em] uppercase text-[#C9A96E]">Book Your Visit</span>
-            </div>
-            <h2 className="font-serif text-4xl md:text-5xl text-[#F5F0E8] leading-tight mb-6">
-              Begin Your{' '}
-              <span className="gold-text italic">Transformation</span>
-            </h2>
-            <p className="text-[#F5F0E8]/60 text-lg leading-relaxed font-light mb-10">
-              Schedule a private consultation with one of our specialists. We&apos;ll design a
-              personalised treatment pathway tailored to your goals and timeline.
-            </p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Map */}
+          <div className="overflow-hidden border border-border h-[380px] lg:h-full min-h-[300px]">
+            <iframe
+              title="Noor Clinic — Business Bay, Dubai"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.178!2d55.2617!3d25.1865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f69a7b2b0b0b1%3A0x0!2sBusiness%20Bay%2C%20Dubai!5e0!3m2!1sen!2sae!4v1700000000000"
+              width="100%"
+              height="100%"
+              style={{ border: 0, minHeight: '300px' }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
 
-            {/* Contact info */}
-            <div className="space-y-5 mb-10">
-              {[
-                {
-                  icon: (
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                      <path d="M9 1C5.686 1 3 3.686 3 7c0 4.5 6 10 6 10s6-5.5 6-10c0-3.314-2.686-6-6-6z" stroke="#C9A96E" strokeWidth="1.4"/>
-                      <circle cx="9" cy="7" r="2" stroke="#C9A96E" strokeWidth="1.4"/>
+          {/* Contact details */}
+          <div className="bg-white border border-border p-8 sm:p-10 flex flex-col justify-between">
+            <div>
+              <h3 className="font-display text-[28px] font-light text-charcoal mb-7">Contact Details</h3>
+
+              <div className="space-y-5">
+                {/* Address */}
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 bg-rose-gold/10 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-4 h-4 text-rose-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
-                  ),
-                  label: 'Location',
-                  value: 'The Binary Tower, Business Bay, Dubai, UAE',
-                },
-                {
-                  icon: (
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                      <path d="M3 3h3.5l1.5 4-2 1.5a10 10 0 004.5 4.5L12 11l4 1.5V16c0 .5-.5 1-1 1C6 17 1 11 1 4c0-.5.5-1 1-1h1z" stroke="#C9A96E" strokeWidth="1.4" strokeLinejoin="round"/>
-                    </svg>
-                  ),
-                  label: 'Phone',
-                  value: '+971 50 123 4567',
-                },
-                {
-                  icon: (
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                      <rect x="2" y="4" width="14" height="10" rx="1.5" stroke="#C9A96E" strokeWidth="1.4"/>
-                      <path d="M2 6l7 5 7-5" stroke="#C9A96E" strokeWidth="1.4" strokeLinecap="round"/>
-                    </svg>
-                  ),
-                  label: 'Email',
-                  value: 'hello@noorclinic.ae',
-                },
-                {
-                  icon: (
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                      <circle cx="9" cy="9" r="7" stroke="#C9A96E" strokeWidth="1.4"/>
-                      <path d="M9 5v4l2.5 2.5" stroke="#C9A96E" strokeWidth="1.4" strokeLinecap="round"/>
-                    </svg>
-                  ),
-                  label: 'Hours',
-                  value: 'Monday – Saturday, 9:00 AM – 8:00 PM',
-                },
-              ].map((item) => (
-                <div key={item.label} className="flex items-start gap-4">
-                  <div className="w-8 h-8 flex items-center justify-center border border-[#C9A96E]/20 flex-shrink-0 mt-0.5">
-                    {item.icon}
                   </div>
                   <div>
-                    <p className="text-[11px] tracking-[0.12em] uppercase text-[#C9A96E]/70 mb-0.5">{item.label}</p>
-                    <p className="text-[#F5F0E8]/80 text-sm">{item.value}</p>
+                    <p className="text-[11px] text-charcoal/40 uppercase tracking-widest mb-1">Address</p>
+                    <p className="text-[15px] text-charcoal/80">The Binary Tower, Business Bay<br />Dubai, UAE</p>
                   </div>
                 </div>
-              ))}
-            </div>
 
-            {/* Google Maps embed — Business Bay, Dubai */}
-            <div className="overflow-hidden border border-[#C9A96E]/15 h-56">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.1785100527875!2d55.26445427600631!3d25.18634747749024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f69d5e7a5b4a1%3A0x8f3c4e7b2d1a6c9f!2sBusiness%20Bay%2C%20Dubai%2C%20UAE!5e0!3m2!1sen!2sae!4v1711100000000!5m2!1sen!2sae"
-                width="100%"
-                height="224"
-                style={{ border: 0, filter: 'invert(0.9) hue-rotate(200deg) saturate(0.3)' }}
-                allowFullScreen={false}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Noor Clinic — Business Bay Dubai"
-              />
-            </div>
-          </motion.div>
-
-          {/* Right: Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-          >
-            <div className="card-dark p-8 lg:p-10">
-              {submitted ? (
-                <div className="text-center py-12">
-                  <div className="w-16 h-16 border border-[#C9A96E]/30 flex items-center justify-center mx-auto mb-5">
-                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                      <path d="M5 14l6 6 12-12" stroke="#C9A96E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                {/* Phone */}
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 bg-rose-gold/10 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-4 h-4 text-rose-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
-                  <h3 className="font-serif text-2xl text-[#F5F0E8] mb-3">Consultation Request Received</h3>
-                  <p className="text-[#F5F0E8]/60 text-sm leading-relaxed">
-                    Thank you for reaching out. One of our specialists will contact you within 24 hours
-                    to confirm your consultation time.
-                  </p>
+                  <div>
+                    <p className="text-[11px] text-charcoal/40 uppercase tracking-widest mb-1">Phone</p>
+                    <a href="tel:+971501234567" className="text-[15px] text-charcoal/80 hover:text-rose-gold transition-colors">
+                      +971 50 123 4567
+                    </a>
+                  </div>
                 </div>
-              ) : (
-                <>
-                  <h3 className="font-serif text-2xl text-[#F5F0E8] mb-2">Request a Consultation</h3>
-                  <p className="text-[#F5F0E8]/50 text-sm mb-8">
-                    Share your details and we&apos;ll be in touch within 24 hours.
-                  </p>
 
-                  <form onSubmit={handleSubmit} className="space-y-5">
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-[11px] tracking-[0.1em] uppercase text-[#C9A96E]/70 mb-2">
-                          First Name *
-                        </label>
-                        <input
-                          type="text"
-                          name="firstName"
-                          required
-                          className="w-full bg-[#0A0A0F] border border-[#C9A96E]/15 text-[#F5F0E8] text-sm px-4 py-3 focus:outline-none focus:border-[#C9A96E]/50 transition-colors placeholder-[#F5F0E8]/20"
-                          placeholder="Your first name"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-[11px] tracking-[0.1em] uppercase text-[#C9A96E]/70 mb-2">
-                          Last Name *
-                        </label>
-                        <input
-                          type="text"
-                          name="lastName"
-                          required
-                          className="w-full bg-[#0A0A0F] border border-[#C9A96E]/15 text-[#F5F0E8] text-sm px-4 py-3 focus:outline-none focus:border-[#C9A96E]/50 transition-colors placeholder-[#F5F0E8]/20"
-                          placeholder="Your last name"
-                        />
-                      </div>
-                    </div>
+                {/* Email */}
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 bg-rose-gold/10 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-4 h-4 text-rose-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-[11px] text-charcoal/40 uppercase tracking-widest mb-1">Email</p>
+                    <a href="mailto:hello@noorclinic.ae" className="text-[15px] text-charcoal/80 hover:text-rose-gold transition-colors">
+                      hello@noorclinic.ae
+                    </a>
+                  </div>
+                </div>
 
-                    <div>
-                      <label className="block text-[11px] tracking-[0.1em] uppercase text-[#C9A96E]/70 mb-2">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        required
-                        className="w-full bg-[#0A0A0F] border border-[#C9A96E]/15 text-[#F5F0E8] text-sm px-4 py-3 focus:outline-none focus:border-[#C9A96E]/50 transition-colors placeholder-[#F5F0E8]/20"
-                        placeholder="you@example.com"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-[11px] tracking-[0.1em] uppercase text-[#C9A96E]/70 mb-2">
-                        WhatsApp / Phone
-                      </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        className="w-full bg-[#0A0A0F] border border-[#C9A96E]/15 text-[#F5F0E8] text-sm px-4 py-3 focus:outline-none focus:border-[#C9A96E]/50 transition-colors placeholder-[#F5F0E8]/20"
-                        placeholder="+971 5X XXX XXXX"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-[11px] tracking-[0.1em] uppercase text-[#C9A96E]/70 mb-2">
-                        Treatment of Interest
-                      </label>
-                      <select
-                        name="treatment"
-                        className="w-full bg-[#0A0A0F] border border-[#C9A96E]/15 text-[#F5F0E8] text-sm px-4 py-3 focus:outline-none focus:border-[#C9A96E]/50 transition-colors appearance-none cursor-pointer"
-                      >
-                        <option value="">Select a treatment</option>
-                        <option>Botox &amp; Fillers</option>
-                        <option>Laser Skin Resurfacing</option>
-                        <option>IV Vitamin Drips</option>
-                        <option>PRP Hair Restoration</option>
-                        <option>Body Sculpting (Emsculpt)</option>
-                        <option>Skin Brightening</option>
-                        <option>Multiple / Unsure</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-[11px] tracking-[0.1em] uppercase text-[#C9A96E]/70 mb-2">
-                        Tell Us Your Goals
-                      </label>
-                      <textarea
-                        name="message"
-                        rows={4}
-                        className="w-full bg-[#0A0A0F] border border-[#C9A96E]/15 text-[#F5F0E8] text-sm px-4 py-3 focus:outline-none focus:border-[#C9A96E]/50 transition-colors resize-none placeholder-[#F5F0E8]/20"
-                        placeholder="Share what you're looking to achieve..."
-                      />
-                    </div>
-
-                    <button
-                      type="submit"
-                      disabled={loading}
-                      className="btn-gold w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed"
-                    >
-                      {loading ? 'Sending...' : 'Request Consultation'}
-                    </button>
-
-                    <p className="text-[11px] text-[#F5F0E8]/35 text-center">
-                      Your privacy is paramount. All consultations are strictly confidential.
-                    </p>
-                  </form>
-                </>
-              )}
+                {/* WhatsApp */}
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 bg-rose-gold/10 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-4 h-4 text-rose-gold" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-[11px] text-charcoal/40 uppercase tracking-widest mb-1">WhatsApp</p>
+                    <a href="https://wa.me/971501234567" target="_blank" rel="noopener noreferrer" className="text-[15px] text-charcoal/80 hover:text-rose-gold transition-colors">
+                      +971 50 123 4567
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
-          </motion.div>
+
+            {/* Hours */}
+            <div className="mt-8 pt-6 border-t border-border">
+              <p className="text-[11px] text-charcoal/40 uppercase tracking-widest mb-3">Opening Hours</p>
+              <div className="space-y-1.5 text-[14px] text-charcoal/70">
+                <p>Mon – Thu, Sat &nbsp;&nbsp; 9:00 am – 8:00 pm</p>
+                <p>Friday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2:00 pm – 8:00 pm</p>
+                <p className="text-charcoal/40">Sunday — Closed</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

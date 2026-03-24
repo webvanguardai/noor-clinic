@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap');
-
 :root {
-  --font-inter: 'Inter', sans-serif;
-  --font-playfair: 'Playfair Display', serif;
+  --rose-gold: #B5927A;
+  --rose-gold-light: #D4B49E;
+  --rose-gold-dark: #8C6E58;
+  --charcoal: #1A1A1A;
+  --charcoal-soft: #3A3A3A;
+  --white: #FFFFFF;
+  --off-white: #F9F7F5;
+  --border: #E8E2DC;
 }
 
 * {
@@ -20,44 +24,43 @@ html {
 }
 
 body {
-  background-color: #0A0A0F;
-  color: #F5F0E8;
-  font-family: var(--font-inter);
+  background-color: var(--white);
+  color: var(--charcoal);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.gold-text {
-  background: linear-gradient(135deg, #C9A96E 0%, #E8D5B0 50%, #C9A96E 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Typography utilities */
+.font-display {
+  font-family: var(--font-cormorant), 'Georgia', serif;
 }
 
-.section-divider {
-  width: 48px;
-  height: 1px;
-  background: linear-gradient(90deg, #C9A96E, transparent);
-}
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: var(--rose-gold); border-radius: 3px; }
 
-.btn-gold {
+/* Button styles */
+.btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 14px 36px;
-  background: linear-gradient(135deg, #C9A96E 0%, #E8D5B0 50%, #C9A96E 100%);
-  color: #0A0A0F;
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.1em;
+  background-color: var(--rose-gold);
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  border: 1.5px solid var(--rose-gold);
 }
 
-.btn-gold:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(201, 169, 110, 0.4);
+.btn-primary:hover {
+  background-color: var(--rose-gold-dark);
+  border-color: var(--rose-gold-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(181, 146, 122, 0.35);
 }
 
 .btn-outline {
@@ -65,28 +68,54 @@ body {
   align-items: center;
   gap: 8px;
   padding: 13px 35px;
-  border: 1px solid rgba(201, 169, 110, 0.5);
-  color: #C9A96E;
+  border: 1.5px solid var(--charcoal);
+  color: var(--charcoal);
   font-weight: 500;
-  font-size: 13px;
-  letter-spacing: 0.1em;
+  font-size: 14px;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   transition: all 0.3s ease;
+  background: transparent;
 }
 
 .btn-outline:hover {
-  border-color: #C9A96E;
-  background: rgba(201, 169, 110, 0.08);
+  background-color: var(--charcoal);
+  color: #fff;
   transform: translateY(-1px);
 }
 
-.card-dark {
-  background: #12121A;
-  border: 1px solid rgba(201, 169, 110, 0.1);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+/* Section utilities */
+.section-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rose-gold);
 }
 
-.card-dark:hover {
-  border-color: rgba(201, 169, 110, 0.3);
-  box-shadow: 0 8px 40px rgba(201, 169, 110, 0.08);
+/* WhatsApp pulse */
+@keyframes waPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(181,146,122,0.45); }
+  50% { box-shadow: 0 4px 36px rgba(181,146,122,0.7), 0 0 0 8px rgba(181,146,122,0.1); }
+}
+
+/* FAQ accordion */
+details summary { cursor: pointer; list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+
+/* Treatment row image */
+.treatment-img {
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Fade-in utility (no JS needed — CSS only via intersection trick) */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeup {
+  animation: fadeUp 0.6s ease both;
 }
