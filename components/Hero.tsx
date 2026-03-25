@@ -11,20 +11,20 @@ export default function Hero() {
 
           {/* Headline */}
           <h1 className="font-display text-[52px] sm:text-[64px] lg:text-[72px] xl:text-[80px] leading-[1.0] font-light text-charcoal mb-5">
-            Precision<br />
-            <span className="italic text-rose-gold">aesthetics.</span><br />
-            Visible results.
+            Results that<br />
+            <span className="italic text-rose-gold">speak clearly.</span><br />
+            Not loudly.
           </h1>
 
           {/* Subline */}
           <p className="text-[15px] text-charcoal/60 font-medium tracking-wide mb-10">
-            DHA Licensed Clinic&nbsp;&nbsp;·&nbsp;&nbsp;Business Bay, Dubai
+            Board-Certified Aesthetic Physicians&nbsp;&nbsp;·&nbsp;&nbsp;Business Bay, Dubai&nbsp;&nbsp;·&nbsp;&nbsp;DHA Licensed
           </p>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4">
             <a href="#booking" className="btn-primary">
-              Book Now
+              Book a Consultation
             </a>
             <a href="#treatments" className="btn-outline">
               View Treatments
@@ -35,17 +35,17 @@ export default function Hero() {
           <div className="mt-14 flex gap-8 border-t border-border pt-8">
             <div>
               <p className="font-display text-[32px] font-semibold text-charcoal leading-none">2,400+</p>
-              <p className="text-[12px] text-charcoal/50 mt-1 tracking-wide uppercase">Treatments done</p>
+              <p className="text-[12px] text-charcoal/50 mt-1 tracking-wide uppercase">Procedures performed</p>
             </div>
             <div className="w-px bg-border" />
             <div>
               <p className="font-display text-[32px] font-semibold text-charcoal leading-none">4.9★</p>
-              <p className="text-[12px] text-charcoal/50 mt-1 tracking-wide uppercase">Google Rating</p>
+              <p className="text-[12px] text-charcoal/50 mt-1 tracking-wide uppercase">340 verified reviews</p>
             </div>
             <div className="w-px bg-border" />
             <div>
-              <p className="font-display text-[32px] font-semibold text-charcoal leading-none">DHA</p>
-              <p className="text-[12px] text-charcoal/50 mt-1 tracking-wide uppercase">Licensed</p>
+              <p className="font-display text-[32px] font-semibold text-charcoal leading-none">6+</p>
+              <p className="text-[12px] text-charcoal/50 mt-1 tracking-wide uppercase">Years in Business Bay</p>
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-l from-black/5 to-transparent" />
         {/* Badge */}
         <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm px-5 py-3 border border-border shadow-md">
-          <p className="text-[11px] text-charcoal/50 uppercase tracking-widest mb-0.5">Board-Certified</p>
+          <p className="text-[11px] text-charcoal/50 uppercase tracking-widest mb-0.5">ABHRS & DHA Certified</p>
           <p className="font-display text-[16px] font-semibold text-charcoal">Aesthetic Physicians</p>
         </div>
       </div>

@@ -1,9 +1,9 @@
 const trust = [
-  { icon: '✦', label: 'DHA Licensed' },
-  { icon: '★', label: '5★ Google Rating' },
-  { icon: '◈', label: '2,400+ Treatments' },
-  { icon: '✦', label: 'Board-Certified Doctors' },
-  { icon: '◈', label: 'Same-Day Appointments' },
+  { icon: '✦', label: 'DHA License No. 4721-001' },
+  { icon: '★', label: '4.9★ · 340 Google Reviews' },
+  { icon: '◈', label: '2,400+ Procedures Performed' },
+  { icon: '✦', label: 'ABHRS Board-Certified Physicians' },
+  { icon: '◈', label: 'Members: ISAPS · DASIL' },
 ]
 
 export default function TrustBar() {
