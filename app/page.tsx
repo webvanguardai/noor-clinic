@@ -95,7 +95,7 @@ export default function Home() {
 
         {/* WhatsApp Floating Button */}
         <a
-          href="https://wa.me/971501234567?text=Hello%20Noor%20Clinic%2C%20I%27d%20like%20to%20book%20a%20consultation"
+          href="https://wa.me/971585324519?text=Hello%20Noor%20Clinic%2C%20I%27d%20like%20to%20book%20a%20consultation"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat with Noor Clinic on WhatsApp"

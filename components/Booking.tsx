@@ -38,7 +38,7 @@ export default function Booking() {
     const msg = encodeURIComponent(
       `Hello Noor Clinic 👋\n\nI'd like to book a consultation.\n\nName: ${form.name}\nPhone: ${form.phone}\nTreatment: ${form.treatment}\nPreferred Date: ${form.date}`
     )
-    window.open(`https://wa.me/971501234567?text=${msg}`, '_blank')
+    window.open(`https://wa.me/971585324519?text=${msg}`, '_blank')
     setSubmitted(true)
     setLoading(false)
   }
