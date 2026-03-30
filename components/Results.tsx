@@ -26,14 +26,14 @@ const results = [
 
 export default function Results() {
   return (
-    <section id="results" className="py-20 bg-off-white scroll-mt-16">
+    <section id="results" className="py-20 bg-surface scroll-mt-16 border-t border-border">
       <div className="max-w-7xl mx-auto px-5 lg:px-10">
         {/* Header */}
         <div className="mb-12">
           <p className="section-label mb-3">Patient Stories</p>
-          <h2 className="font-display text-[48px] sm:text-[60px] font-light text-charcoal leading-tight">
+          <h2 className="font-display text-[52px] sm:text-[64px] font-light text-text-primary leading-tight tracking-tight">
             Real results.<br />
-            <span className="italic text-rose-gold">Real people.</span>
+            <span className="italic text-gold">Real people.</span>
           </h2>
         </div>
 
@@ -42,9 +42,9 @@ export default function Results() {
           {results.map((r) => (
             <div
               key={r.name}
-              className="bg-white border border-border overflow-hidden group hover:shadow-lg transition-shadow duration-300"
+              className="bg-bg border border-border overflow-hidden group hover:border-gold/40 transition-colors duration-300"
             >
-              {/* Abstract gradient image representing result */}
+              {/* Image */}
               <div className="relative h-52 overflow-hidden">
                 <Image
                   src={r.image}
@@ -53,9 +53,10 @@ export default function Results() {
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
+                <div className="absolute inset-0 bg-black/25" />
                 {/* Treatment badge */}
-                <div className="absolute top-4 left-4 bg-rose-gold px-3 py-1">
-                  <span className="text-[10px] text-white font-medium tracking-widest uppercase">
+                <div className="absolute top-4 left-4 bg-gold/20 border border-gold/40 px-3 py-1 backdrop-blur-sm">
+                  <span className="text-[10px] text-gold font-medium tracking-[0.18em] uppercase">
                     {r.treatment}
                   </span>
                 </div>
@@ -63,20 +64,20 @@ export default function Results() {
 
               {/* Content */}
               <div className="p-6">
-                <p className="text-[14px] text-charcoal/70 leading-relaxed mb-5 italic">
+                <p className="text-[14px] text-text-secondary leading-relaxed mb-5 italic">
                   &ldquo;{r.quote}&rdquo;
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-rose-gold/20 flex items-center justify-center">
-                    <span className="font-display text-rose-gold text-sm font-semibold">
+                  <div className="w-8 h-8 rounded-full border border-gold/40 bg-gold/10 flex items-center justify-center">
+                    <span className="font-display text-gold text-sm font-semibold">
                       {r.name.charAt(0)}
                     </span>
                   </div>
                   <div>
-                    <p className="font-semibold text-[13px] text-charcoal">{r.name}</p>
+                    <p className="font-semibold text-[13px] text-text-primary">{r.name}</p>
                     <div className="flex gap-0.5 mt-0.5">
                       {'★★★★★'.split('').map((s, i) => (
-                        <span key={i} className="text-rose-gold text-[11px]">{s}</span>
+                        <span key={i} className="text-gold text-[11px]">{s}</span>
                       ))}
                     </div>
                   </div>

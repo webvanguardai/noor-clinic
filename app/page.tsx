@@ -82,7 +82,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <main className="bg-white text-charcoal overflow-x-hidden">
+      <main className="bg-bg text-text-primary overflow-x-hidden">
         <Nav />
         <Hero />
         <TrustBar />
@@ -104,14 +104,14 @@ export default function Home() {
             bottom: '28px',
             right: '28px',
             zIndex: 9999,
-            backgroundColor: '#B5927A',
+            backgroundColor: '#C9A96E',
             borderRadius: '50%',
             width: '58px',
             height: '58px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 4px 20px rgba(181,146,122,0.45)',
+            boxShadow: '0 4px 20px rgba(201,169,110,0.45)',
             animation: 'waPulse 2.5s ease-in-out infinite',
             transition: 'transform 0.2s ease',
           }}

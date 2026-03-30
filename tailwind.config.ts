@@ -9,13 +9,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'rose-gold': '#B5927A',
-        'rose-gold-light': '#D4B49E',
-        'rose-gold-dark': '#8C6E58',
-        charcoal: '#1A1A1A',
-        'charcoal-soft': '#3A3A3A',
-        'off-white': '#F9F7F5',
-        border: '#E8E2DC',
+        // New dark-luxury palette
+        gold: '#C9A96E',
+        'gold-light': '#E8C89A',
+        'gold-dark': '#A0803E',
+        bg: '#0C0A09',
+        surface: '#141210',
+        'off-white': '#111009',
+        'text-primary': '#F5F0EB',
+        'text-secondary': '#9A8A78',
+        border: '#2A2420',
+        // Legacy aliases (kept so old class refs still resolve)
+        'rose-gold': '#C9A96E',
+        'rose-gold-light': '#E8C89A',
+        'rose-gold-dark': '#A0803E',
+        charcoal: '#0C0A09',
+        'charcoal-soft': '#2A2420',
       },
       fontFamily: {
         sans: ['var(--font-dm-sans)', 'system-ui', 'sans-serif'],

@@ -53,13 +53,13 @@ const treatments = [
 
 export default function Treatments() {
   return (
-    <section id="treatments" className="py-20 bg-white scroll-mt-16">
+    <section id="treatments" className="py-20 bg-bg scroll-mt-16">
       {/* Header */}
       <div className="max-w-7xl mx-auto px-5 lg:px-10 mb-14">
         <p className="section-label mb-3">Our Treatments</p>
-        <h2 className="font-display text-[48px] sm:text-[60px] font-light text-charcoal leading-tight max-w-xl">
+        <h2 className="font-display text-[52px] sm:text-[64px] font-light text-text-primary leading-tight max-w-xl tracking-tight">
           Every treatment.<br />
-          <span className="italic text-rose-gold">Expertly delivered.</span>
+          <span className="italic text-gold">Expertly delivered.</span>
         </h2>
       </div>
 
@@ -73,7 +73,7 @@ export default function Treatments() {
               className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} border-t border-border`}
             >
               {/* Image */}
-              <div className="lg:w-1/2 relative h-[260px] sm:h-[320px] lg:h-[400px]">
+              <div className="lg:w-1/2 relative h-[260px] sm:h-[320px] lg:h-[400px] overflow-hidden">
                 <Image
                   src={t.image}
                   alt={t.alt}
@@ -81,22 +81,24 @@ export default function Treatments() {
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
+                {/* Dark overlay for depth */}
+                <div className="absolute inset-0 bg-black/30" />
               </div>
 
               {/* Details */}
               <div
                 className={`lg:w-1/2 flex flex-col justify-center px-8 sm:px-12 lg:px-16 py-10 lg:py-0 ${
-                  isEven ? 'bg-white' : 'bg-off-white'
+                  isEven ? 'bg-surface' : 'bg-off-white'
                 }`}
               >
                 <p className="section-label mb-3">{t.duration}</p>
-                <h3 className="font-display text-[36px] sm:text-[44px] font-light text-charcoal leading-tight mb-3">
+                <h3 className="font-display text-[40px] sm:text-[48px] font-light text-text-primary leading-tight mb-3 tracking-tight">
                   {t.name}
                 </h3>
-                <p className="text-[15px] text-charcoal/65 leading-relaxed mb-5 max-w-sm">
+                <p className="text-[15px] text-text-secondary leading-relaxed mb-5 max-w-sm">
                   {t.tagline}
                 </p>
-                <p className="font-display text-[24px] text-rose-gold font-semibold mb-7">
+                <p className="font-display text-[26px] text-gold font-semibold mb-7 tracking-wide">
                   {t.price}
                 </p>
                 <a

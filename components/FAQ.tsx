@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: 'Can I book same day?',
-    a: 'Yes — same-day appointments are available subject to availability. Simply message us on WhatsApp (+971 50 123 4567) or use the booking form above, and we\'ll do our best to accommodate you. We typically confirm within 60 minutes.',
+    a: "Yes — same-day appointments are available subject to availability. Simply message us on WhatsApp (+971 50 123 4567) or use the booking form above, and we'll do our best to accommodate you. We typically confirm within 60 minutes.",
   },
 ]
 
@@ -29,14 +29,14 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null)
 
   return (
-    <section id="faq" className="py-20 bg-white scroll-mt-16">
+    <section id="faq" className="py-20 bg-bg scroll-mt-16 border-t border-border">
       <div className="max-w-3xl mx-auto px-5 lg:px-10">
         {/* Header */}
         <div className="mb-12">
           <p className="section-label mb-3">FAQ</p>
-          <h2 className="font-display text-[48px] sm:text-[56px] font-light text-charcoal leading-tight">
+          <h2 className="font-display text-[48px] sm:text-[56px] font-light text-text-primary leading-tight tracking-tight">
             Questions<br />
-            <span className="italic text-rose-gold">answered.</span>
+            <span className="italic text-gold">answered.</span>
           </h2>
         </div>
 
@@ -48,17 +48,17 @@ export default function FAQ() {
                 className="w-full flex items-center justify-between py-5 text-left group"
                 onClick={() => setOpen(open === i ? null : i)}
               >
-                <span className="font-display text-[20px] sm:text-[22px] font-medium text-charcoal group-hover:text-rose-gold transition-colors pr-4">
+                <span className="font-display text-[20px] sm:text-[22px] font-medium text-text-primary group-hover:text-gold transition-colors pr-4">
                   {faq.q}
                 </span>
-                <span className={`text-rose-gold text-xl flex-shrink-0 transition-transform duration-200 ${open === i ? 'rotate-45' : ''}`}>
+                <span className={`text-gold text-xl flex-shrink-0 transition-transform duration-200 ${open === i ? 'rotate-45' : ''}`}>
                   +
                 </span>
               </button>
 
               {open === i && (
                 <div className="pb-5">
-                  <p className="text-[15px] text-charcoal/65 leading-relaxed">{faq.a}</p>
+                  <p className="text-[15px] text-text-secondary leading-relaxed">{faq.a}</p>
                 </div>
               )}
             </div>
