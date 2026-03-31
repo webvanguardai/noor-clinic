@@ -38,7 +38,7 @@ const treatments = [
     tagline: 'Eliminate stubborn fat and build muscle simultaneously with non-invasive Emsculpt technology.',
     duration: '30 min / session',
     price: 'from AED 2,000',
-    image: 'https://images.unsplash.com/photo-1551763163-adb9b6a26a94?w=900&q=85&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=900&q=85&auto=format&fit=crop',
     alt: 'Body sculpting treatment',
   },
   {
